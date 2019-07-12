@@ -1,0 +1,38 @@
+version: '3.5'
+
+x-common-variables: &common-variables
+  NODE_ENV: development
+  RABBITMQ_HOST: ${RABBITMQ_HOST:-rabbitmq}
+  RABBITMQ_PORT: ${RABBITMQ_PORT:-5672}
+  RABBITMQ_USER: ${RABBITMQ_USER:-guest}
+  RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD:-guest}
+
+services:
+
+  producer_service:
+    build: ./producer_service
+
+    environment:
+      <<: *common-variables
+      EVENTS_SENT_FREQUENCY_EXPRESSION: ${EVENTS_SENT_FREQUENCY_EXPRESSION}
+
+    ports:
+      - 3000:3000
+
+    networks:
+      - shared_network
+
+  consumer_service:
+    build: ./consumer_service
+
+    environment:
+      <<: *common-variables
+    ports:
+      - 3001:3001
+
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    name: shared_network

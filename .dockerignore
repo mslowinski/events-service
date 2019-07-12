@@ -1,0 +1,9 @@
+node_modules
+.next
+spec
+build.git
+.DS_Store
+integration-test/
+scripts
+build
+.env

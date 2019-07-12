@@ -1,0 +1,44 @@
+{
+  "extends": ["tslint-config-standard", "tslint-config-security"],
+  "rules": {
+    "semicolon": false,
+    "typedef-whitespace": [
+        true,
+        {
+            "call-signature": "nospace",
+            "index-signature": "nospace",
+            "parameter": "nospace",
+            "property-declaration": "nospace",
+            "variable-declaration": "nospace"
+        },
+        {
+            "call-signature": "onespace",
+            "index-signature": "onespace",
+            "parameter": "onespace",
+            "property-declaration": "onespace",
+            "variable-declaration": "onespace"
+        }
+    ],
+    "no-internal-module": true,
+    "no-trailing-whitespace": true,
+    "no-null-keyword": true,
+    "prefer-const": true,
+    "jsdoc-format": true,
+    "await-promise": [
+        true,
+        "Bluebird"
+    ],
+    "space-before-function-paren": false,
+    "curly": true,
+    "ordered-imports": [
+        true,
+        {
+          "grouped-imports": true,
+          "import-sources-order": "case-insensitive",
+          "named-imports-order": "lowercase-last"
+        }
+      ],
+    "tsr-detect-non-literal-require": false,
+    "tsr-detect-non-literal-fs-filename": false
+  }
+}

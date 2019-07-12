@@ -1,0 +1,7 @@
+{
+  "name": "events-service",
+  "version": "1.0.0",
+  "description": "Sample events producer and consumer",
+  "author": "MSL",
+  "license": "ISC"
+}
